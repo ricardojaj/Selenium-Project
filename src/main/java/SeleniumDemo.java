@@ -11,8 +11,18 @@ public class SeleniumDemo {
         WebDriver driver = new ChromeDriver();
         driver.get("https://practicetestautomation.com/practice-test-login/");
         WebElement usernameInputField = driver.findElement(By.id("username"));
+        WebElement usernameInputFieldXpath = driver.findElement(By.xpath("//input[@id = 'username']"));
+        WebElement usernameInputFieldCss = driver.findElement(By.cssSelector("input[id='username']"));
+
+
         WebElement passwordInputField = driver.findElement(By.id("password"));
+        WebElement passwordInputFieldXpath = driver.findElement(By.xpath("//input[@id = 'password']"));
+        WebElement passwordInputFieldCss = driver.findElement(By.cssSelector("input[id='password']"));
+
+
         WebElement submitButton = driver.findElement(By.className("btn"));
+        WebElement submitButtonXpath = driver.findElement(By.xpath("//button[@id = 'submit']"));
+        WebElement submitButtonCss = driver.findElement(By.cssSelector("button[id='submit']"));
 
 
         List<WebElement> inputFields = driver.findElements(By.tagName("input"));
