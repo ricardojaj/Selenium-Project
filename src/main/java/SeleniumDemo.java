@@ -9,6 +9,23 @@ import java.util.List;
 public class SeleniumDemo {
     public static void main(String[] args) {
         WebDriver driver = new ChromeDriver();
+        findLoginPageElements(driver);
+        driver.quit();
+    }
+
+    private static void findExceptionPageElements(WebDriver driver){
+        driver.get("https://practicetestautomation.com/practice-test-exception/");
+
+        WebElement linkTextorLocator = driver.findElement(By.linkText("Selenium WebDriver with Java for beginners program"));
+
+        //input field
+        WebElement Row1Field = driver.findElement(By.className("input-field"));
+        WebElement Row1FieldXpath = driver.findElement(By.xpath("//input[@class = 'input-field']"));
+        WebElement Row1FieldCss = driver.findElement(By.cssSelector("input[class='input-field']"));
+    }
+
+    private static void findLoginPageElements(WebDriver driver){
+
         driver.get("https://practicetestautomation.com/practice-test-login/");
         WebElement usernameInputField = driver.findElement(By.id("username"));
         WebElement usernameInputFieldXpath = driver.findElement(By.xpath("//input[@id = 'username']"));
@@ -27,13 +44,12 @@ public class SeleniumDemo {
 
         List<WebElement> inputFields = driver.findElements(By.tagName("input"));
 
-        WebElement linkTextLocator = driver.findElement(By.linkText(" Practice Test Automation."));
-        WebElement partialLinkTextLocator = driver.findElement(By.partialLinkText("Teste Automation"));
+       // WebElement linkTextLocator = driver.findElement(By.linkText(" Practice Test Automation."));
+       // WebElement partialLinkTextLocator = driver.findElement(By.partialLinkText("Teste Automation"));
 
         WebElement passwordFieldBelowUsername = driver.findElement(RelativeLocator.with(By.tagName("input")).below(By.id("username")));
-        WebElement privacyPolicyLink = driver.findElement(RelativeLocator.with(By.tagName("a")).toRightOf(By.partialLinkText("Teste Automation"));
+        WebElement privacyPolicyLink = driver.findElement(RelativeLocator.with(By.tagName("a")).toRightOf(By.partialLinkText("Teste Automation")));
 
-        driver.quit();
     }
 
     private static String chromeTest(String url){
