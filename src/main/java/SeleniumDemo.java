@@ -17,11 +17,22 @@ public class SeleniumDemo {
         driver.get("https://practicetestautomation.com/practice-test-exception/");
 
         WebElement linkTextorLocator = driver.findElement(By.linkText("Selenium WebDriver with Java for beginners program"));
-
+        WebElement linkByPartialText = driver.findElement(By.partialLinkText("with Java for beginners"));
+        
+        
         //input field
-        WebElement Row1Field = driver.findElement(By.className("input-field"));
+        WebElement Row1ByTag = driver.findElement(By.tagName("input"))
+        WebElement Row1Class = driver.findElement(By.className("input-field"));
         WebElement Row1FieldXpath = driver.findElement(By.xpath("//input[@class = 'input-field']"));
         WebElement Row1FieldCss = driver.findElement(By.cssSelector("input[class='input-field']"));
+        
+        // Create a list of WebElements for all buttons using tag
+        List<WebElement> buttons = driver.findElements(By.tagName("button"));
+        
+        WebElement editButtonByID = driver.findElement(By.id("edit-btn"));
+        WebElement editButtonByName = driver.findElement(By.name("Edit"));
+        WebElement editButtonByCss = driver.findElement(By.cssSelector("//button[@class='btn']"));
+        WebElement editButtonByXpath = driver.findElement(By.xpath("//button[@class='btn']"));
     }
 
     private static void findLoginPageElements(WebDriver driver){
