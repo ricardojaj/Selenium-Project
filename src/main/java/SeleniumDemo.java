@@ -2,7 +2,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.locators.RelativeLocator;
 
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class SeleniumDemo {
         
         
         //input field
-        WebElement Row1ByTag = driver.findElement(By.tagName("input"))
+        WebElement Row1ByTag = driver.findElement(By.tagName("input"));
         WebElement Row1Class = driver.findElement(By.className("input-field"));
         WebElement Row1FieldXpath = driver.findElement(By.xpath("//input[@class = 'input-field']"));
         WebElement Row1FieldCss = driver.findElement(By.cssSelector("input[class='input-field']"));
@@ -33,26 +32,39 @@ public class SeleniumDemo {
         WebElement editButtonByName = driver.findElement(By.name("Edit"));
         WebElement editButtonByCss = driver.findElement(By.cssSelector("//button[@class='btn']"));
         WebElement editButtonByXpath = driver.findElement(By.xpath("//button[@class='btn']"));
+
+
     }
 
     private static void findLoginPageElements(WebDriver driver){
 
         driver.get("https://practicetestautomation.com/practice-test-login/");
         WebElement usernameInputField = driver.findElement(By.id("username"));
-        WebElement usernameInputFieldXpath = driver.findElement(By.xpath("//input[@id = 'username']"));
-        WebElement usernameInputFieldCss = driver.findElement(By.cssSelector("input[id='username']"));
+        usernameInputField.sendKeys("anyUsername");
+
+        //Outras maneiras de mapear o campo username
+        //WebElement usernameInputFieldXpath = driver.findElement(By.xpath("//input[@id = 'username']"));
+        //WebElement usernameInputFieldCss = driver.findElement(By.cssSelector("input[id='username']"));
 
 
         WebElement passwordInputField = driver.findElement(By.id("password"));
-        WebElement passwordInputFieldXpath = driver.findElement(By.xpath("//input[@id = 'password']"));
-        WebElement passwordInputFieldCss = driver.findElement(By.cssSelector("input[id='password']"));
+        passwordInputField.sendKeys("anyPassword");
+
+        //Outras maneiras de mapear o campo passwordInputfield
+        //WebElement passwordInputFieldXpath = driver.findElement(By.xpath("//input[@id = 'password']"));
+        //WebElement passwordInputFieldCss = driver.findElement(By.cssSelector("input[id='password']"));
 
 
         WebElement submitButton = driver.findElement(By.className("btn"));
-        WebElement submitButtonXpath = driver.findElement(By.xpath("//button[@id = 'submit']"));
-        WebElement submitButtonCss = driver.findElement(By.cssSelector("button[id='submit']"));
+        System.out.println(submitButton.isDisplayed());
+        submitButton.click();
 
 
+        //Outras maneiras de mapear o botao submit
+        //WebElement submitButtonXpath = driver.findElement(By.xpath("//button[@id = 'submit']"));
+        //WebElement submitButtonCss = driver.findElement(By.cssSelector("button[id='submit']"));
+
+        /*
         List<WebElement> inputFields = driver.findElements(By.tagName("input"));
 
        // WebElement linkTextLocator = driver.findElement(By.linkText(" Practice Test Automation."));
@@ -60,7 +72,7 @@ public class SeleniumDemo {
 
         WebElement passwordFieldBelowUsername = driver.findElement(RelativeLocator.with(By.tagName("input")).below(By.id("username")));
         WebElement privacyPolicyLink = driver.findElement(RelativeLocator.with(By.tagName("a")).toRightOf(By.partialLinkText("Teste Automation")));
-
+        */
     }
 
     private static String chromeTest(String url){
